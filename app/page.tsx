@@ -1,8 +1,9 @@
 "use client";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import Cell from "./components/Cell";
 import Reset from "./components/Reset";
+import { title } from "process";
 
 const winningCombos = [
   [0, 1, 2],
@@ -43,6 +44,7 @@ export default function Home() {
     setTurn("x");
     setWinngMessage("");
   };
+
   return (
     <div>
       <main className="container">

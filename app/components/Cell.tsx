@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
+
 type cellProps = {
   id: number;
   turn: string;
@@ -7,12 +8,21 @@ type cellProps = {
   cells: string[];
   setCells: Dispatch<SetStateAction<string[]>>;
   cell: string;
-  winngMessage:string
+  winngMessage: string;
 };
 
-const Cell = ({ turn, setTurn, id, cells, setCells, cell,winngMessage }: cellProps) => {
+const Cell = ({
+  turn,
+  setTurn,
+  id,
+  cells,
+  setCells,
+  cell,
+  winngMessage,
+}: cellProps) => {
+  
   const handleClick = () => {
-    if (winngMessage){
+    if (winngMessage) {
       return;
     }
     const notTaken = !cells[id];
@@ -27,6 +37,7 @@ const Cell = ({ turn, setTurn, id, cells, setCells, cell,winngMessage }: cellPro
     }
   };
 
+
   const handleTurnChange = (turnChange: string) => {
     let copyCells = [...cells];
     copyCells[id] = turnChange;
@@ -34,7 +45,7 @@ const Cell = ({ turn, setTurn, id, cells, setCells, cell,winngMessage }: cellPro
   };
   return (
     <div className="square" onClick={handleClick}>
-      <div className={cell}>{cell?(cell === "x" ? "x" : "o"):""}</div>
+      <div className={cell}>{cell ? (cell === "x" ? "x" : "o") : ""}</div>
     </div>
   );
 };
